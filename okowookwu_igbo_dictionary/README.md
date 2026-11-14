@@ -3,7 +3,7 @@
 A fast, offline-first Igbo–English dictionary mobile app built with Flutter, backed by a secure Supabase Edge Function proxy and SQLite local caching.
 
 ## Download
-Grab the latest Android APK directly from the [Releases](../../releases) page.
+Grab the latest Android APK directly from the [Releases](https://github.com/EzekweGideon001/Flutter-Blubber/releases) page.
 
 ## Features
 - **Bilingual Search:** Search in Igbo (with or without diacritics) or English with smart relevance ranking.
