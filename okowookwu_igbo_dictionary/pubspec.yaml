@@ -1,0 +1,39 @@
+name: igbo_dictionary
+description: "An offline-first Igbo dictionary application."
+publish_to: 'none'
+
+version: 1.0.0+2
+
+environment:
+  sdk: ^3.11.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  http: ^1.6.0
+  sqflite: ^2.4.2+1
+  path: ^1.9.1
+  audioplayers: ^6.7.1
+  path_provider: ^2.1.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icon/app_icon.png
+    - assets/icon/splash_screen.png
+    - shorebird.yaml
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon/app_icon.png"
+  min_sdk_android: 21
