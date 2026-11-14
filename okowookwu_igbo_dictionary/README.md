@@ -1,36 +1,25 @@
-# Ọkọwookwu
+# Ọkọwookwu (Igbo Dictionary)
 
-## Android release builds
+A fast, offline-first Igbo–English dictionary mobile app built with Flutter, backed by a secure Supabase Edge Function proxy and SQLite local caching.
 
-For Google Play, build an Android App Bundle so Play can deliver only the
-native libraries required by each device:
+## Download
+Grab the latest Android APK directly from the [Releases](../../releases) page.
 
-```shell
-flutter build appbundle --release
-```
+## Features
+- **Bilingual Search:** Search in Igbo (with or without diacritics) or English with smart relevance ranking.
+- **Offline Caching:** Previously searched words are cached locally in SQLite for instant offline access.
+- **Over-the-Air Updates:** Built with Shorebird for seamless Dart code patches.
 
-For direct distribution, build one APK per supported ABI instead of a large
-universal APK:
+## Setup & Configuration
+To run or fork this project with your own backend:
+1. Obtain a free API key from [IgboAPI](https://igboapi.com/).
+2. Deploy the Supabase Edge Function inside `supabase/functions/search-proxy/` and set your secret:
+   ```bash
+   supabase secrets set IGBO_API_KEY=your_igbo_api_key
+3. Update `_proxyUrl` in `lib/services/api_service.dart` to point to your deployed Supabase Edge Function URL.
+4. *(Optional)* If you plan to distribute your own fork with Shorebird OTA updates, run `shorebird init` to replace the `app_id` in `shorebird.yaml` with your own.
 
-```shell
-flutter build apk --release --split-per-abi
-```
-
-The split APKs are written to `build/app/outputs/flutter-apk/`; install the
-APK matching the device architecture. Configure a private release signing key
-before publishing; the current Android release build uses the debug signing
-configuration.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Release Builds
+Releases are managed via Shorebird to support over-the-air (OTA) patches:
+```bash
+shorebird release android --artifact apk
